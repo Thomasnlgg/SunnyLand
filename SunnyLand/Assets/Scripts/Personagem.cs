@@ -15,8 +15,7 @@ public class Personagem : MonoBehaviour
     void Start()
     {
         Debug.Log("Nome: \n" + Nome + "\n Vida: " + vida);
-        rb = GetComponent<Rigidbody2D>();
-        rb.gravityScale = novagravidade;
+     
     }
 
     // Update is called once per frame
