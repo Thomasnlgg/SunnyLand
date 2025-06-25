@@ -1,25 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 
-public class Coletavel : MonoBehaviour
+public class Moeda : MonoBehaviour
 {
-    public GameManager gameManager;
+    public bool velocidade = false;
     public ParticleSystem efeito;
-    private bool moedaColetada = false;
-
+    public PlayerMovement playerMovement;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
-            if (moedaColetada) return;
-            gameManager.AddPoints(1);
+            if (velocidade) return;
+            playerMovement.runSpeed = 100f;
             Instantiate(efeito, transform.position, Quaternion.identity);
             Destroy(gameObject);
-            moedaColetada = true;
+            velocidade = true;
         }
     }
-
-
 }
